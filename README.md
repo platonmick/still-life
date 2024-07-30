@@ -26,3 +26,18 @@ A puzzle of this kind is perfect to be solved by a SAT solver. That's a program 
 You just have to transfer the rules given into constraints that can be fed into the solver and run it.
 
 The Python script in [still_life.py](still_life.py) describes and solves the above puzzle. It uses [PySAT](https://pysathq.github.io/) to do so.
+
+
+## Install
+
+```
+git clone https://github.com/607011/still-life.git
+cd still_life
+pipenv install
+```
+
+## Run
+
+```
+pipenv run ./still_life.py
+```
