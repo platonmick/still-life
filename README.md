@@ -1,6 +1,6 @@
 # Solve a logic puzzle with PySAT
 
-[A post in the Subreddit "puzzles"](https://www.reddit.com/r/puzzles/s/uCq0PnahSw) stated the following puzzle:
+[A post in the Subreddit "puzzles"](https://www.reddit.com/r/puzzles/s/uCq0PnahSw) contained the following puzzle:
 
     Charlotte is going to paint a still life, but first she has to set the scene.
     She has the following eight items: red grapes, a bottle of red wine, a banana,
