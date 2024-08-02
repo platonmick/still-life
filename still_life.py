@@ -14,6 +14,7 @@ From the following clues, can you determine which objects Caroline will select?
 
 from pysat.formula import CNF
 from pysat.solvers import Solver
+from time import time_ns
 
 
 ITEMS = [
@@ -67,8 +68,16 @@ formula.append([-banana, -sunflower])
 formula.append([pine_cone, bowl])
 formula.append([-pine_cone, -bowl])
 
+# print resulting formula
+print(
+    " ∧ ".join(
+        f"""({" ∨ ".join(("¬" if literal < 0 else "") + ITEMS[abs(literal) - 1] for literal in clause)})"""
+        for clause in formula.clauses
+    )
+)
 
-def all_solutions():
+
+def calculcate_all_solutions():
     solutions = []
     while True:
         solver = Solver()
@@ -82,6 +91,10 @@ def all_solutions():
         formula.append([-i for i in model])
     return solutions
 
-
-for solution in all_solutions():
+t0 = time_ns()
+solutions = calculcate_all_solutions()
+dt = time_ns() - t0
+for solution in solutions:
     print(solution)
+
+print(f"Calculation time: {dt / 1_000_000} ms")
