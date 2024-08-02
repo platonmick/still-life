@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 
 """
+Copyright (c) 2024 Oliver Lau, Heise Medien GmbH & Co. KG
+
+
+This program solves the following logic puzzle:
+
 Charlotte is going to paint a still life, but first she has to set the scene.
 She has the following eight items: red grapes, a bottle of red wine, a banana,
 a sunflower, a green apple, a green vase, a pine cone and a wooden bowl.
@@ -10,6 +15,9 @@ From the following clues, can you determine which objects Caroline will select?
 - She will pick the vase only if she also picks the sunflower.
 - She will pick exactly two man-made objects, but only one made of glass.
 - She will pick exactly one item of each color.
+
+
+For resolutions of the disambiguities and the puzzle's source see README.
 """
 
 from pysat.formula import CNF
