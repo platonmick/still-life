@@ -67,27 +67,21 @@ formula.append([-banana, -sunflower])
 formula.append([pine_cone, bowl])
 formula.append([-pine_cone, -bowl])
 
-solver = Solver()
-solver.append_formula(formula)
 
-if solver.solve():
-    model = solver.get_model()
-    print("Solution:")
-    for i, item_idx in enumerate(
-        [
-            grapes,
-            wine,
-            banana,
-            sunflower,
-            apple,
-            vase,
-            pine_cone,
-            bowl,
-        ],
-        start=1,
-    ):
-        if i in model:
-            print(f"- {ITEMS[item_idx-1]}")
-else:
-    print("No solution found for the given constraints.")
+def all_solutions():
+    solutions = []
+    while True:
+        solver = Solver()
+        solver.append_formula(formula)
+        if not solver.solve():
+            break
+        model = solver.get_model()
+        solution = [ITEMS[i - 1] for i in model if i > 0]
+        solutions.append(solution)
+        # Add clause to exclude the found solution
+        formula.append([-i for i in model])
+    return solutions
 
+
+for solution in all_solutions():
+    print(solution)
